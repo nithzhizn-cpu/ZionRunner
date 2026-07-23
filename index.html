@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#05080d">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="ZION Runner 3.0 — deliver an encrypted message through the adaptive Universal Path Layer.">
+  <title>ZION Runner 3.0 — Final Stage</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main id="app" class="app">
+    <canvas id="game-canvas" role="img" aria-label="ZION Runner 3.0 game area"></canvas>
+
+    <div class="ambient-grid" aria-hidden="true"></div>
+    <div class="ambient-orb ambient-orb--cyan" aria-hidden="true"></div>
+    <div class="ambient-orb ambient-orb--violet" aria-hidden="true"></div>
+
+    <section id="menu-screen" class="screen screen--menu" aria-labelledby="menu-title">
+      <div class="command-center">
+        <header class="command-bar">
+          <a class="brand-lockup" href="#" aria-label="ZION Runner home" onclick="return false">
+            <span class="brand-mark" aria-hidden="true">
+              <span>Z</span>
+              <i></i>
+            </span>
+            <span class="brand-copy">
+              <strong>ZION RUNNER</strong>
+              <small>UNIVERSAL PATH LAYER</small>
+            </span>
+          </a>
+
+          <div class="system-state">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span>UPL ONLINE</span>
+            <small>STAGE 03 · FINAL</small>
+          </div>
+        </header>
+
+        <div class="command-grid">
+          <section class="hero-copy">
+            <p class="eyebrow"><span>Encrypted courier protocol</span></p>
+            <h1 id="menu-title">
+              Deliver the
+              <span>message.</span>
+            </h1>
+            <p class="hero-description">
+              One packet. Every available path. Cross hostile networks,
+              survive the Quantum Jammer and keep the message moving.
+            </p>
+
+            <div class="profile-strip" role="group" aria-label="Courier profile">
+              <article>
+                <span class="metric-icon" aria-hidden="true">◇</span>
+                <div>
+                  <strong id="profile-credits">0</strong>
+                  <small>Available keys</small>
+                </div>
+              </article>
+              <article>
+                <span class="metric-icon" aria-hidden="true">↗</span>
+                <div>
+                  <strong id="profile-deliveries">0</strong>
+                  <small>Deliveries</small>
+                </div>
+              </article>
+              <article>
+                <span class="metric-icon" aria-hidden="true">⌁</span>
+                <div>
+                  <strong id="profile-best">0</strong>
+                  <small>Best score</small>
+                </div>
+              </article>
+            </div>
+
+            <div class="menu-actions">
+              <button id="start-game-button" class="button button--primary" type="button">
+                <span>Start delivery</span>
+                <i aria-hidden="true">→</i>
+              </button>
+              <button id="sound-toggle-button" class="button button--secondary" type="button" aria-pressed="true">
+                Sound: On
+              </button>
+            </div>
+
+            <div class="controls-help" role="group" aria-label="Game controls">
+              <span><kbd>←</kbd><kbd>→</kbd> Move</span>
+              <span><kbd>Space</kbd> Jump</span>
+              <span><i aria-hidden="true"></i> Double jump ready</span>
+            </div>
+          </section>
+
+          <aside class="operations-panel" aria-label="UPL operations">
+            <section class="route-console">
+              <div class="section-heading">
+                <div>
+                  <span>Adaptive routing</span>
+                  <strong>Available paths</strong>
+                </div>
+                <small>6 / 6 READY</small>
+              </div>
+
+              <div class="transport-grid">
+                <article class="transport active">
+                  <span class="transport-icon" aria-hidden="true">🌐</span>
+                  <div><strong>Internet</strong><small>Global route</small></div>
+                  <i aria-hidden="true"></i>
+                </article>
+                <article class="transport">
+                  <span class="transport-icon" aria-hidden="true">◉</span>
+                  <div><strong>Bluetooth</strong><small>Nearby fallback</small></div>
+                  <i aria-hidden="true"></i>
+                </article>
+                <article class="transport">
+                  <span class="transport-icon" aria-hidden="true">⌁</span>
+                  <div><strong>Wi‑Fi Direct</strong><small>Fast local link</small></div>
+                  <i aria-hidden="true"></i>
+                </article>
+                <article class="transport">
+                  <span class="transport-icon" aria-hidden="true">⬡</span>
+                  <div><strong>Mesh</strong><small>Trusted relays</small></div>
+                  <i aria-hidden="true"></i>
+                </article>
+                <article class="transport">
+                  <span class="transport-icon" aria-hidden="true">▣</span>
+                  <div><strong>LAN</strong><small>Infrastructure</small></div>
+                  <i aria-hidden="true"></i>
+                </article>
+                <article class="transport">
+                  <span class="transport-icon" aria-hidden="true">◒</span>
+                  <div><strong>Satellite</strong><small>Blackout path</small></div>
+                  <i aria-hidden="true"></i>
+                </article>
+              </div>
+
+              <div class="quantum-alert">
+                <span class="quantum-symbol" aria-hidden="true">✦</span>
+                <div>
+                  <strong>Quantum Jammer detected</strong>
+                  <small>Final-route defense protocol armed</small>
+                </div>
+                <span class="threat-level">THREAT 06</span>
+              </div>
+            </section>
+
+            <section class="loadout-console">
+              <div class="section-heading">
+                <div>
+                  <span>Permanent loadout</span>
+                  <strong>Courier upgrades</strong>
+                </div>
+                <small>AUTO-SAVED</small>
+              </div>
+
+              <div id="upgrade-list" class="upgrade-list" role="group" aria-label="Permanent upgrades">
+                <article data-upgrade-card="armor">
+                  <span class="upgrade-icon" aria-hidden="true">🛡</span>
+                  <div class="upgrade-copy">
+                    <strong>Packet Armor</strong>
+                    <small>Extra starting shield</small>
+                    <span data-upgrade-level>Level 0/3</span>
+                  </div>
+                  <button data-upgrade="armor" type="button">Upgrade · 12 keys</button>
+                </article>
+                <article data-upgrade-card="magnet">
+                  <span class="upgrade-icon" aria-hidden="true">🧲</span>
+                  <div class="upgrade-copy">
+                    <strong>Key Magnet</strong>
+                    <small>Extended collection range</small>
+                    <span data-upgrade-level>Level 0/3</span>
+                  </div>
+                  <button data-upgrade="magnet" type="button">Upgrade · 10 keys</button>
+                </article>
+                <article data-upgrade-card="relay">
+                  <span class="upgrade-icon" aria-hidden="true">◎</span>
+                  <div class="upgrade-copy">
+                    <strong>Trusted Relay</strong>
+                    <small>Permanent score boost</small>
+                    <span data-upgrade-level>Level 0/3</span>
+                  </div>
+                  <button data-upgrade="relay" type="button">Upgrade · 14 keys</button>
+                </article>
+              </div>
+            </section>
+
+            <section class="achievements-console">
+              <div class="section-heading section-heading--compact">
+                <div>
+                  <span>Courier record</span>
+                  <strong>Achievements</strong>
+                </div>
+                <small>5 SIGNALS</small>
+              </div>
+              <div id="achievement-list" class="achievement-list" role="group" aria-label="Achievements"></div>
+            </section>
+          </aside>
+        </div>
+
+        <footer class="command-footer">
+          <span><i></i> End-to-end encrypted simulation</span>
+          <span>Build 3.0.3</span>
+        </footer>
+      </div>
+    </section>
+
+    <header id="game-hud" class="hud hidden">
+      <div class="hud-brand">
+        <span class="brand-mark brand-mark--small" aria-hidden="true"><span>Z</span><i></i></span>
+        <div><strong>ZION RUNNER 3.0</strong><small>Universal Path Layer</small></div>
+      </div>
+
+      <div class="route">
+        <span>Current secure route</span>
+        <strong id="current-route-name">🌐 Internet</strong>
+        <small id="route-latency">38 ms · Stable</small>
+      </div>
+
+      <div class="stats">
+        <span><small>Score</small><strong id="score-value">0</strong></span>
+        <span><small>Keys</small><strong id="key-value">0</strong></span>
+        <span><small>Combo</small><strong id="combo-value">×1.0</strong></span>
+        <span><small>Shields</small><strong id="shield-value">3</strong></span>
+      </div>
+    </header>
+
+    <aside id="upl-assistant" class="assistant hidden" aria-label="UPL assistant" aria-live="polite">
+      <span class="assistant-avatar" aria-hidden="true">AI</span>
+      <div>
+        <strong>UPL ASSISTANT</strong>
+        <span id="upl-assistant-message">Secure route initialized.</span>
+      </div>
+      <i aria-hidden="true"></i>
+    </aside>
+
+    <div id="route-progress-wrap" class="progress-wrap hidden" role="group" aria-label="Route progress">
+      <span>TX</span>
+      <div class="progress-track"><div id="route-progress" class="progress"></div></div>
+      <span>RX</span>
+    </div>
+
+    <div id="threat-hud" class="threat-hud hidden" role="group" aria-label="Quantum Jammer integrity">
+      <div class="threat-title">
+        <span><i aria-hidden="true"></i> Quantum Jammer</span>
+        <small>Disruption integrity</small>
+      </div>
+      <div class="threat-track"><i id="threat-bar"></i></div>
+    </div>
+
+    <button id="pause-button" class="pause hidden" type="button" aria-label="Pause game">
+      <span aria-hidden="true">Ⅱ</span>
+    </button>
+
+    <nav id="mobile-controls" class="mobile hidden" aria-label="Mobile game controls">
+      <div>
+        <button id="move-left-button" type="button" aria-label="Move left">◀</button>
+        <button id="move-right-button" type="button" aria-label="Move right">▶</button>
+      </div>
+      <button id="jump-button" class="jump" type="button" aria-label="Jump">
+        <span>↑</span><small>JUMP</small>
+      </button>
+    </nav>
+
+    <section id="pause-screen" class="screen screen--dialog hidden" aria-labelledby="pause-title">
+      <div class="dialog-panel">
+        <div class="dialog-icon dialog-icon--pause" aria-hidden="true">Ⅱ</div>
+        <p class="eyebrow"><span>Encrypted packet secured</span></p>
+        <h2 id="pause-title">Transmission paused</h2>
+        <p>The active route is frozen. Your packet remains protected inside the UPL tunnel.</p>
+        <div class="dialog-actions">
+          <button id="resume-button" class="button button--primary" type="button"><span>Resume delivery</span><i>→</i></button>
+          <button id="restart-from-pause-button" class="button button--secondary" type="button">Restart route</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="mission-screen" class="screen screen--dialog hidden" aria-labelledby="mission-title">
+      <div class="dialog-panel dialog-panel--mission">
+        <div class="route-switch" aria-hidden="true">
+          <span>TX</span><i></i><b>UPL</b><i></i><span>RX</span>
+        </div>
+        <p class="eyebrow"><span>Adaptive route event</span></p>
+        <h2 id="mission-title">Internet lost</h2>
+        <p id="mission-text">UPL is switching to Bluetooth automatically.</p>
+        <div class="signal-search" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <button id="continue-mission-button" class="button button--primary" type="button">
+          <span>Continue delivery</span><i>→</i>
+        </button>
+      </div>
+    </section>
+
+    <section id="result-screen" class="screen screen--result hidden" aria-labelledby="result-title">
+      <div class="result-panel">
+        <div class="result-status" aria-hidden="true"><span>✓</span></div>
+        <p class="eyebrow"><span>Final delivery report</span></p>
+        <h2 id="result-title">Message delivered</h2>
+        <p id="result-message">UPL found a secure path through every network disruption.</p>
+
+        <div class="result-grid" role="group" aria-label="Delivery statistics">
+          <article><small>Score</small><strong id="final-score">0</strong><span>POINTS</span></article>
+          <article><small>Routes</small><strong id="final-routes">1/6</strong><span>SECURED</span></article>
+          <article><small>Run keys</small><strong id="final-keys">0</strong><span>COLLECTED</span></article>
+          <article><small>Best score</small><strong id="best-score">0</strong><span>PERSONAL</span></article>
+          <article><small>Packet hits</small><strong id="final-hits">0</strong><span>DAMAGE</span></article>
+          <article><small>Key balance</small><strong id="credit-balance">0</strong><span>AVAILABLE</span></article>
+        </div>
+
+        <p id="unlock-message" class="unlock-message hidden"></p>
+
+        <div class="dialog-actions">
+          <button id="play-again-button" class="button button--primary" type="button"><span>New delivery</span><i>→</i></button>
+          <button id="back-to-menu-button" class="button button--secondary" type="button">UPL headquarters</button>
+        </div>
+      </div>
+    </section>
+
+    <div id="effect-chip" class="effect-chip hidden">Secure tunnel · 8.0s</div>
+    <div id="status-toast" class="toast" role="status" aria-live="polite"></div>
+
+    <noscript>
+      <div class="noscript-message">JavaScript is required to run ZION Runner 3.0.</div>
+    </noscript>
+  </main>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
